@@ -1,6 +1,7 @@
 __author__ = 'TPei'
 import matplotlib.pyplot as plt
 from timeit import default_timer as timer
+from utils import *
 
 x = []
 y = []
@@ -19,13 +20,4 @@ for i in range(1, 1000000000):
         y.append(timer() - start)
         start = timer()
 
-        # set new data
-        line1.set_xdata(x)
-        line1.set_ydata(y)
-
-        # resetting the limits is necessary when the graph max / min changes
-        plt.ylim(min(y[-1000:]), max(y[-1000:]))
-        plt.xlim(min(x[-1000:]), max(x))
-
-        # redraw
-        fig.canvas.draw()
+        update_graph(plt, fig, line1, x, y)
