@@ -20,4 +20,4 @@ for i in range(1, 1000000000):
         y.append(timer() - start)
         start = timer()
 
-        update_graph(plt, fig, line1, x, y)
+        update_graph(plt, fig, line1, y, x)
